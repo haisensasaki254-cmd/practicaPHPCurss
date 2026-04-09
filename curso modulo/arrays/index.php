@@ -6,6 +6,7 @@
     <title>Arrays</title>
 </head>
 <body>
+    <a href="funciones.php">Funciones con array</a>
     <h1>Que es un array?</h1>
     <P>Es una coleccion o conjunto de datos bajo un unico nombre y para acceder a estos valores podemos usar un indice numerico o alfa numerico</P>
     <p>Existe para recorrer todo el conjunto con el foreach y el for.</p>

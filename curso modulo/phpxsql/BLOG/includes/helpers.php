@@ -45,4 +45,16 @@
         }
         
     }
+
+    function show_last_entrys(){
+        global $conexion;
+        $sql = "SELECT e.*, c.* FROM entradas e inner join categorias c where e.categoria_id = c.id order by e.id desc limit 4";
+        $result = mysqli_query($conexion, $sql);
+        $entrys = [];
+        if($result && mysqli_num_rows($result)>=1){
+            $entrys = $result;
+        }
+        return $entrys;        
+        
+    }
 ?>

@@ -27,7 +27,7 @@
         </div>
 
         <!-- menu -->
-        
+       
 
         <nav id="menu">
             <ul>
@@ -36,7 +36,8 @@
                 </li>
                 <?php 
                     $categoriasResultado  =  show_categorias();
-                    while($categoria = mysqli_fetch_assoc($categoriasResultado)):
+                    if(!empty($categoriasResultado)):
+                        while($categoria = mysqli_fetch_assoc($categoriasResultado)):
                 ?>
                 <li>
                     <a href="categoria.php?id=<?= $categoria['id'] ;?>"><?= $categoria['nombre'];?></a>
@@ -45,7 +46,12 @@
                 
 
                 <?php endwhile; ?>
-                 
+                <?php else: ?>
+                    <li>
+                    <a href="agregar_categoria.php">Agrega tus categorias</a>
+                </li>
+                    
+                <?php endif; ?>                 
                                 <li>
                     <a href="index.php">Sobre mi</a>
                 </li>

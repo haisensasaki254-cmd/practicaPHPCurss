@@ -13,62 +13,32 @@ require_once 'includes/cabecera.php';
 
     <div id="principal"> 
         <h1>Ultimas entradas</h1>
+        <?php 
+        
+            $entrys = show_last_entrys();
+            if(!empty($entrys)):
+                while($last_entry = mysqli_fetch_assoc($entrys)):
+        ?>
         <article class="entrada">
 
             <a href="">
 
             <h2>
-                Titulo de mi entrada
+
+                <?=   $last_entry["titulo"] ?>
             </h2>
             <p>
 
-               Descripcion de entrada
+               <?= substr($last_entry["descripcion"],0,200 ) . '...';?>
             </p>
             </a>
                 
-        </article>
-         <article class="entrada">
-
-            <a href="">
-
-            <h2>
-                Titulo de mi entrada
-            </h2>
-            <p>
-
-               Descripcion de entrada
-            </p>
-            </a>
-                
-        </article>
-         <article class="entrada">
-
-            <a href="">
-
-            <h2>
-                Titulo de mi entrada
-            </h2>
-            <p>
-
-               Descripcion de entrada
-            </p>
-            </a>
-                
-        </article>
-         <article class="entrada">
-
-            <a href="">
-
-            <h2>
-                Titulo de mi entrada
-            </h2>
-            <p>
-
-               Descripcion de entrada
-            </p>
-            </a>
-                
-        </article>
+       <?php endwhile;?>
+       <?php else: ?>
+        <h3 style="color:red">
+            No existen entradas;
+        </h3>
+               <?php endif;  ?>
            
     <div id="ver-todas">
         <a href="#">Ver todas las entradas </a>

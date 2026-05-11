@@ -7,6 +7,7 @@
     $conexion = mysqli_connect($server, $username, $password, $database);
     mysqli_query($conexion, "SET NAMES 'utf8'");
 
-// Envio de errores
+if(!isset($_SESSION)){
     session_start();
-    
+
+}

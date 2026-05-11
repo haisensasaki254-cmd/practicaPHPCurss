@@ -27,6 +27,9 @@ require_once 'includes/cabecera.php';
 
                 <?=   $last_entry["titulo"] ?>
             </h2>
+            <span class="fecha">
+                <?= $last_entry["categoria"] . ' | ' . $last_entry['fecha'] ?>
+            </span>
             <p>
 
                <?= substr($last_entry["descripcion"],0,200 ) . '...';?>

@@ -9,8 +9,8 @@
             <div class="bloque">
                 <?= " Bienvenido <strong>" . $_SESSION['user_login']['nombre'] . ' ' . $_SESSION['user_login']['apellido'] . ' </strong>'; ?>
                 <a href="#" class="boton boton-naranja">Editar mis datos</a>
-                <a href="#" class="boton">Crear categoria</a>
-                <a href="#" class="boton boton-verde">Crear entradas</a>
+                <a href="create-category.php" class="boton">Crear categoria</a>
+                <a href="create-entry.php" class="boton boton-verde">Crear entradas</a>
                 <a href="cerrar.php" class="boton boton-rojo">Cerrar sesion</a>
             </div>
         <?php endif; ?>

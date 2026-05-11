@@ -224,6 +224,7 @@ input[type="submit"],
     letter-spacing: 1px;
     font-family: "fajala";
     margin-top: 25px;
+    padding-bottom: 15px;
 }
 
 #principal p {

@@ -4,6 +4,7 @@
 
     if(isset($_POST)){
         include './includes/conexion.php';
+        global $conexion;
 
         // Variable de errores
         $error = array();

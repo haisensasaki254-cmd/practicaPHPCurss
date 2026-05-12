@@ -8,7 +8,7 @@
         <?php if ((isset($_SESSION['user_login'])) && (!empty($_SESSION['user_login']))): ?>
             <div class="bloque">
                 <?= " Bienvenido <strong>" . $_SESSION['user_login']['nombre'] . ' ' . $_SESSION['user_login']['apellido'] . ' </strong>'; ?>
-                <a href="#" class="boton boton-naranja">Editar mis datos</a>
+                <a href="edit_user.php" class="boton boton-naranja">Editar mis datos</a>
                 <a href="create-category.php" class="boton">Crear categoria</a>
                 <a href="create-entry.php" class="boton boton-verde">Crear entradas</a>
                 <a href="cerrar.php" class="boton boton-rojo">Cerrar sesion</a>

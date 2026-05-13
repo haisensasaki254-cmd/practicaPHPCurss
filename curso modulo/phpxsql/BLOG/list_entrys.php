@@ -12,16 +12,16 @@ require_once 'includes/cabecera.php';
     
 
     <div id="principal"> 
-        <h1>Ultimas entradas</h1>
+        <h1>Todas las entradas</h1>
         <?php 
         
-            $entrys = show_last_entrys(limit:4);
+            $entrys = show_last_entrys();
             if(!empty($entrys)):
                 while($last_entry = mysqli_fetch_assoc($entrys)):
         ?>
         <article class="entrada">
 
-            <a href="detail_category.php?id=<?=$last_entry["id"]?>">
+            <a href="">
 
             <h2>
 
@@ -43,9 +43,6 @@ require_once 'includes/cabecera.php';
         </h3>
                <?php endif;  ?>
            
-    <div id="ver-todas">
-        <a href="list_entrys.php">Ver todas las entradas </a>
-    </div>
 
     </div>
 

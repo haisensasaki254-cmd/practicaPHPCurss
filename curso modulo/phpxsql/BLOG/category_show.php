@@ -1,5 +1,10 @@
 <?php
 require_once 'includes/cabecera.php';
+$categoria = show_category($_GET['id']);
+if(empty($categoria)||!isset($categoria)){
+    header("Location:index.php");
+}
+
 
 ?>
 
@@ -12,16 +17,18 @@ require_once 'includes/cabecera.php';
     
 
     <div id="principal"> 
-        <h1>Ultimas entradas</h1>
+        
+       
+        <h1>Todas las entradas para la categoria: <?=  $categoria['nombre'] ?></h1>
         <?php 
         
-            $entrys = show_last_entrys(limit:4);
-            if(!empty($entrys)):
+            $entrys = show_last_entrys(categoria:$categoria['id']);
+            if(!empty($entrys) && mysqli_num_rows($entrys) >= 1):
                 while($last_entry = mysqli_fetch_assoc($entrys)):
         ?>
         <article class="entrada">
 
-            <a href="detail_category.php?id=<?=$last_entry["id"]?>">
+            <a href="detail_category.php?id=<?= $last_entry['id']; ?>">
 
             <h2>
 
@@ -39,13 +46,10 @@ require_once 'includes/cabecera.php';
        <?php endwhile;?>
        <?php else: ?>
         <h3 style="color:red">
-            No existen entradas;
+            No existen entradas para esta categoria
         </h3>
                <?php endif;  ?>
            
-    <div id="ver-todas">
-        <a href="list_entrys.php">Ver todas las entradas </a>
-    </div>
 
     </div>
 

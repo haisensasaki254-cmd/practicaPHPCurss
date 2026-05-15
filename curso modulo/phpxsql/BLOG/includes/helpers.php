@@ -93,7 +93,7 @@
 
     function get_entry(int $entrada_id){
         global $conexion;
-        $sql = "SELECT e.*, c.nombre FROM entradas e INNER JOIN  categorias c ON e.categoria_id WHERE e.id = $entrada_id";
+        $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre,' ', u.apellido) AS 'usuario'   FROM entradas e INNER JOIN  categorias c ON e.categoria_id =c.id INNER JOIN usuarios u on e.usuario_id = u.id WHERE e.id = $entrada_id";
         $solicitud = mysqli_query($conexion,$sql);
         $resultado = [];
         if($solicitud && mysqli_num_rows($solicitud)>=1){

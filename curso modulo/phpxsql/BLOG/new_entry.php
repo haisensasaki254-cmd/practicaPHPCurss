@@ -28,8 +28,17 @@
 
         
         if(count($errores) == 0){
-            $sql="INSERT INTO entradas VALUES(NULL,$usuario,$categoria,'$nombre','$descripcion',CURDATE())";
+            if(isset($_GET['editar'])){
+                $entrada_id = $_GET['editar'];
+                $sql = "UPDATE entradas SET titulo='$nombre', descripcion='$descripcion', categoria_id='$categoria' where usuario_id = $usuario and id = $entrada_id";
+                
+            }else{
+                $sql="INSERT INTO entradas VALUES(NULL,$usuario,$categoria,'$nombre','$descripcion',CURDATE())";
+            }
+            
             $guardar = mysqli_query($conexion, $sql);
+            //echo mysqli_error($conexion);
+            //die();
 
             if(!$guardar){
                 $_SESSION['error'] = 'Error al guardar en la base de datos';
@@ -43,8 +52,13 @@
 
 
 
-
-        header("Location:create-entry.php");
+        if(isset($_GET['editar'])){
+            $value = $_GET['editar'];
+            header("Location:edit_entry.php?id_entrada=$value");
+        }else{
+            header("Location:create-entry.php");
+        }
+        
     }
 
 

@@ -4,6 +4,15 @@
 <!-- Mensaje de bienveninda -->
 <!-- barra lateral -->
 <aside id="sidebar-login">
+
+<!-- Formulario de inicio de sesion-->
+ <div id = "buscador" class="bloque"> 
+            <form method="POST" action="buscar.php">
+                <input type="text" required="required" name="busqueda">
+                <input type="submit" value="Buscar">
+            </form>
+    </div>
+
     <div id="login.php" class="bloque">
         <?php if ((isset($_SESSION['user_login'])) && (!empty($_SESSION['user_login']))): ?>
             <div class="bloque">

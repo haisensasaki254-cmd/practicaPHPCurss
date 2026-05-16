@@ -101,4 +101,20 @@
         }
         return $resultado;
     }
+
+
+    function buscar_entradas(string $busqueda){
+        global $conexion;
+        $sql = "SELECT e.*, c.nombre as categoria FROM entradas e inner join categorias c ON e.categoria_id = c.id WHERE e.titulo LIKE '%$busqueda%'";
+        
+
+       
+        $result = mysqli_query($conexion, $sql);
+        $entrys = [];
+        if($result && mysqli_num_rows($result)>=1){
+            $entrys = $result;
+        }
+        return $entrys;        
+        
+    }
 ?>

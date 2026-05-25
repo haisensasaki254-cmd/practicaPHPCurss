@@ -1,9 +1,12 @@
 <?php 
 
+function autoload($clases){
+    $clases  = str_replace("\\","/",$clases);
+    require_once "clases/" . strtolower($clases) . '.php';
 
-function autoload($clase){
-    require_once 'clases/'.strtolower( $clase).'.php';
 }
 
-spl_autoload_register("autoload"); //Emplea para cargar las clases que estan dentro del directorio
+spl_autoload_register("autoload");
+
+
 ?>
